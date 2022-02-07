@@ -7,7 +7,7 @@ import Switch from "@frontity/components/switch";
 import List from "./list";
 import Post from "./post";
 import Page from "./page";
-import { connect, Global, css, styled } from "frontity";
+import { connect, Global, css, styled, Head } from "frontity";
 import Loading from "./loading";
 import Error from "./error";
 
@@ -19,6 +19,13 @@ const Root = ({ state, actions }) => {
 
   return (
     <>
+    <Head>
+        <title>My First Frontity Theme</title>
+        <meta
+          name="description"
+          content="Based on the Frontity step by step tutorial"
+        />
+      </Head>
       <Global
         styles={css`
           * {
