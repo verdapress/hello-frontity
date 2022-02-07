@@ -8,7 +8,9 @@ import List from "./list";
 import Post from "./post";
 import Page from "./page";
 import { connect, Global, css, styled } from "frontity";
-import Loading from "./loading"
+import Loading from "./loading";
+import Error from "./error";
+
 
 
 
@@ -55,6 +57,7 @@ const Root = ({ state, actions }) => {
           <Post when={data.isPost} />
           <Page when={data.isPage} />
           <Page when={data.isDestinations} />
+          <Error when={data.isError} />
         </Switch>
       </Main>
     </>

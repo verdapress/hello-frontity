@@ -4,12 +4,15 @@ import React from "react"
 import { connect, styled } from "frontity"
 import dayjs from "dayjs"
 
-const Post = ({ state }) => {
+const Post = ({ state, libraries }) => {
+    const Html2React = libraries.html2react.Component
     const data = state.source.get(state.router.link)
     const post = state.source[data.type][data.id]
     const author = state.source.author[post.author]
 
-    const formattedDate = dayjs(post.date).format("DD MMMM YYYY")
+    const formattedDate = dayjs(post.date).format("DD MMMM YYYY")   
+     
+
 
   return (
     <div>
@@ -24,7 +27,7 @@ const Post = ({ state }) => {
         {author.name}
       </p>
       </PostInfo>
-      <div dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
+      <Html2React html={post.content.rendered} />
     </div>
   )
 }
