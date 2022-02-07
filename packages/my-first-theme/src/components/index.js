@@ -8,6 +8,8 @@ import List from "./list";
 import Post from "./post";
 import Page from "./page";
 import { connect, Global, css, styled } from "frontity";
+import Loading from "./loading"
+
 
 
 const Root = ({ state, actions }) => {
@@ -48,6 +50,7 @@ const Root = ({ state, actions }) => {
       <hr />
       <Main>
         <Switch>
+          <Loading when={data.isFetching} />
           <List when={data.isArchive} />
           <Post when={data.isPost} />
           <Page when={data.isPage} />
